@@ -1,0 +1,9 @@
+Utiliso croodbosster
+http://crudbooster.com/
+
+para generar el crud de las tablas
+
+Está creado los crud de las tablas.-
+
+
+DEbo crear los controladores para devolver las palabras y los alumnos para que se pueda ver desde vue
