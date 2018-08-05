@@ -26,11 +26,24 @@
             v-on:click.prevent="getPalabras" data-target="#create">
                 Randoms
             </a>-->
-            <select name='selectalumno' id='selectalumno' v-model="selctAlumn" v-on:click="hab">
-              <option selected="" disabled="" value="">Choose your make</option>
-              <option v-for="alumno in alumnos" :value="alumno.id">{{
-                alumno.apellido + ' ' + alumno.nombre}}</option>
+            <select :options="options" v-model="optSelected"   v-on:click="getAlumnos">
+                <option selected="" disabled value="0">Elija Uno</option>
+                <option v-for="op in options" :value="op.id">
+                    {{op.id + op.dificultad}}
+                </option>
             </select>
+
+            <select name='selectalumno' id='selectalumno' v-model="selctAlumn" v-on:click="hab">
+              <option selected="" disabled="" value="">
+                  Elija Una Opción
+              </option>
+              <option v-for="alumno in alumnos" :value="alumno.id">
+                  {{alumno.apellido + ' ' + alumno.nombre}}
+              </option>
+            </select>
+
+            <p> {{ selctAlumn.dificultad }}</p>
+
 
           <div style="text-aling:centre">
             <table class="table table-hover table-striped " >
@@ -99,6 +112,13 @@
             return {
                 "alumnos": [],
                 "palabras":[],
+                //"options":[
+                //    {id:1, text:"Primario"},
+                //    {id:2, text:"Secundario"}
+                //    ],
+                "options":[],
+                "optSelected":[],
+                "dificultad":"",
                 "selctAlumn":0,
                 "msg":"el mensaje",
                 "nabled":"false"
@@ -106,20 +126,32 @@
             },
 
         created: function () {
-            this.getAlumnos();
-            //this.getPalabras();
-
+          this.getDificultad();
+          //this.getAlumnos();
+          //this.getPalabras();
         },
 
         methods:{
+
 
             hab:function(){
 
                 document.getElementById("myBtn").disabled = false;
             },
 
+            getDificultad: function(){
+              var url = '/dificultad';
+              axios.get(url).then(response => {
+                this.options = response.data;
+              }).catch((error)=>{
+                console.log(error);
+              })
+
+            },
+
             getAlumnos: function(){
-                var url= '/alumnos';
+                //console.log(this.optSelected);
+                var url= '/alumnos?nivel=' + this.optSelected;
                 axios.get(url).then(response =>{
                     this.alumnos = response.data;
 
@@ -129,7 +161,7 @@
             },
 
             getPalabras: function () {
-                var url='/palabrasRandom';
+                var url='/palabrasRandom?nivel=' + this.optSelected;
                 axios.get(url).then(response=>{
                     this.palabras = response.data;
                     document.getElementById("myBtnG").disabled = false;

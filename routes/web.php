@@ -29,4 +29,5 @@ Route::resource('sort', 'AlumnoPalanbrasController', ['except' => 'show', 'creat
 
 Route::get('alumnos', 'AlumnosController@index');
 Route::get('alumnos/create', 'AlumnosController@create');
+Route::get('dificultad', 'DificultadController@dificultad');
 Route::get('palabrasRandom', 'PalabrasController@palabrasRandom');

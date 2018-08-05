@@ -43,7 +43,7 @@
 			# OLD START FORM
 			//$this->form = [];
 			//$this->form[] = ['label'=>'Palabra','name'=>'palabra','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Dificultad Id','name'=>'dificultad_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'dificultad,id'];
+			//$this->form[] = ['label'=>'Dificultad','name'=>'dificultad_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'dificultad,dificultad'];
 			# OLD END FORM
 
 			/* 

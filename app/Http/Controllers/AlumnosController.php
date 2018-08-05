@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 class AlumnosController extends Controller
 {
     //
-    Public function index(){
-        $alumnos = Alumno::all();
+    Public function index(Request $request){
+        $alumnos = Alumno::where('dificultad_id', '=', $request->nivel)
+        ->get();
         return $alumnos;
     }
 

@@ -44299,6 +44299,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 // ver esto para hacer random de los elementos de la tabla palabras
@@ -44311,6 +44324,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             "alumnos": [],
             "palabras": [],
+            //"options":[
+            //    {id:1, text:"Primario"},
+            //    {id:2, text:"Secundario"}
+            //    ],
+            "options": [],
+            "optSelected": [],
+            "dificultad": "",
             "selctAlumn": 0,
             "msg": "el mensaje",
             "nabled": "false"
@@ -44319,7 +44339,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
     created: function created() {
-        this.getAlumnos();
+        this.getDificultad();
+        //this.getAlumnos();
         //this.getPalabras();
     },
 
@@ -44330,23 +44351,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             document.getElementById("myBtn").disabled = false;
         },
 
-        getAlumnos: function getAlumnos() {
+        getDificultad: function getDificultad() {
             var _this = this;
 
-            var url = '/alumnos';
+            var url = '/dificultad';
             axios.get(url).then(function (response) {
-                _this.alumnos = response.data;
+                _this.options = response.data;
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+
+        getAlumnos: function getAlumnos() {
+            var _this2 = this;
+
+            //console.log(this.optSelected);
+            var url = '/alumnos?nivel=' + this.optSelected;
+            axios.get(url).then(function (response) {
+                _this2.alumnos = response.data;
             }).catch(function (error) {
                 console.log(error);
             });
         },
 
         getPalabras: function getPalabras() {
-            var _this2 = this;
+            var _this3 = this;
 
-            var url = '/palabrasRandom';
+            var url = '/palabrasRandom?nivel=' + this.optSelected;
             axios.get(url).then(function (response) {
-                _this2.palabras = response.data;
+                _this3.palabras = response.data;
                 document.getElementById("myBtnG").disabled = false;
                 toastr.success("Se han Seleccionado Palabras al Azar");
             }).catch(function (error) {
@@ -44406,6 +44439,53 @@ var render = function() {
             {
               name: "model",
               rawName: "v-model",
+              value: _vm.optSelected,
+              expression: "optSelected"
+            }
+          ],
+          attrs: { options: _vm.options },
+          on: {
+            click: _vm.getAlumnos,
+            change: function($event) {
+              var $$selectedVal = Array.prototype.filter
+                .call($event.target.options, function(o) {
+                  return o.selected
+                })
+                .map(function(o) {
+                  var val = "_value" in o ? o._value : o.value
+                  return val
+                })
+              _vm.optSelected = $event.target.multiple
+                ? $$selectedVal
+                : $$selectedVal[0]
+            }
+          }
+        },
+        [
+          _c("option", { attrs: { selected: "", disabled: "", value: "0" } }, [
+            _vm._v("Elija Uno")
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.options, function(op) {
+            return _c("option", { domProps: { value: op.id } }, [
+              _vm._v(
+                "\n                " +
+                  _vm._s(op.id + op.dificultad) +
+                  "\n            "
+              )
+            ])
+          })
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
               value: _vm.selctAlumn,
               expression: "selctAlumn"
             }
@@ -44430,17 +44510,23 @@ var render = function() {
         },
         [
           _c("option", { attrs: { selected: "", disabled: "", value: "" } }, [
-            _vm._v("Choose your make")
+            _vm._v("\n              Elija Una Opción\n          ")
           ]),
           _vm._v(" "),
           _vm._l(_vm.alumnos, function(alumno) {
             return _c("option", { domProps: { value: alumno.id } }, [
-              _vm._v(_vm._s(alumno.apellido + " " + alumno.nombre))
+              _vm._v(
+                "\n              " +
+                  _vm._s(alumno.apellido + " " + alumno.nombre) +
+                  "\n          "
+              )
             ])
           })
         ],
         2
       ),
+      _vm._v(" "),
+      _c("p", [_vm._v(" " + _vm._s(_vm.selctAlumn.dificultad))]),
       _vm._v(" "),
       _c("div", { staticStyle: { "text-aling": "centre" } }, [
         _c("table", { staticClass: "table table-hover table-striped " }, [

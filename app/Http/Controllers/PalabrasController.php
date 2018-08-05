@@ -12,16 +12,17 @@ use function PHPSTORM_META\type;
 
 class PalabrasController extends Controller
 {
-    Public function palabrasRandom(){
+    Public function palabrasRandom(Request $request){
 
         //$palabrasRoandom = DB::table('palabras')->get();
-        $palabrasRoandom = Palabra::all();
+        $palabrasRoandom = Palabra::where('dificultad_id', '=', $request->nivel)
+        ->get();
 
         $random[] = 0;
-        
-        for( $i = 0; $i <= 9; $i++){
+
+        for( $i = 0; $i <= 4; $i++){
           $rand =rand(1,$palabrasRoandom->count());
-          $random[$i]= Palabra::find($rand);
+          $random[$i] = $palabrasRoandom[$rand];
         }
 
 
