@@ -3,8 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\AlumnoPalabras;
+Use App\Alumnos;
+Use App\Palabras;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+
+use home\ariel\diplomado\Palabras\app\User;
+
+use Illuminate\Support\Facades\DB;
+
+
 
 class AlumnoPalanbrasController extends Controller
 {
@@ -13,9 +21,13 @@ class AlumnoPalanbrasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+          $palabrasxalumno =  AlumnoPalabras::where(
+            'alumno','=', $request->alumno)
+            ->where('correcto','=',null)
+            ->get();
+          return $palabrasxalumno;
     }
 
     /**

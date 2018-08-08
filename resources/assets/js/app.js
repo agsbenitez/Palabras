@@ -17,6 +17,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('dashpalabras', require('./components/dashpalabras.vue'));
+Vue.component('concurso', require('./components/concurso.vue'));
 
 const app = new Vue({
     el: '#app'

@@ -10,6 +10,9 @@ class Palabra extends Model
 {
 
     protected $with = ['dificultad'];
+    //protected $table = "palabras";
+
+
 
     public function dificultad()
     {

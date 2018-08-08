@@ -25,7 +25,16 @@ Route::get('palabras', function (){
 
 });
 
-Route::resource('sort', 'AlumnoPalanbrasController', ['except' => 'show', 'create']);
+Route::get('concurso', function(){
+  return view('concurso');
+});
+Route::get('tb', function(){
+  return view('tablas');
+});
+
+
+Route::resource('sort', 'AlumnoPalanbrasController', ['except' => 'create']);
+Route::resource('play', 'AlumnoPalanbrasController');
 
 Route::get('alumnos', 'AlumnosController@index');
 Route::get('alumnos/create', 'AlumnosController@create');

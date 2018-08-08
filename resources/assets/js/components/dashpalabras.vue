@@ -29,7 +29,7 @@
             <select :options="options" v-model="optSelected"   v-on:click="getAlumnos">
                 <option selected="" disabled value="0">Elija Uno</option>
                 <option v-for="op in options" :value="op.id">
-                    {{op.id + op.dificultad}}
+                    {{op.dificultad}}
                 </option>
             </select>
 
