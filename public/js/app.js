@@ -44169,7 +44169,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\nbutton {\n    text-align: center;\n    vertical-align: middle;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    white-space: nowrap;\n    cursor: pointer;\n    display: inline-block;\n    margin-bottom: 0;\n}\n.contenedor{\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.elemento{\n    width: 25%;\n}\n.destacado{\n    margin-left: 2em;\n    border: dot-dash\n}\n\n", ""]);
+exports.push([module.i, "\nbutton {\n    text-align: center;\n    vertical-align: middle;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    white-space: nowrap;\n    cursor: pointer;\n    display: inline-block;\n    margin-bottom: 0;\n}\n#div1 {\n  margin: 50px;\n  padding: 12px;\n}\n#selectalumno{\n  margin-left: 25px;\n}\n.contenedor{\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.elemento{\n    width: 25%;\n}\n.destacado{\n    margin-left: 2em;\n    border: dot-dash\n}\n\n", ""]);
 
 // exports
 
@@ -44213,6 +44213,15 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -44698,7 +44707,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\nbutton {\n    text-align: center;\n    vertical-align: middle;\n    -webkit-user-select: none;\n       -moz-user-select: none;\n        -ms-user-select: none;\n            user-select: none;\n    white-space: nowrap;\n    cursor: pointer;\n    display: inline-block;\n    margin-bottom: 0;\n}\n.contenedor{\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n}\n.elemento{\n    width: 25%;\n}\n.destacado{\n    margin-left: 2em;\n    border: dot-dash\n}\n#Al{\n  font-size: 70px;\n}\n#Pal{\n  font-size: 200px;\n}\n\n", ""]);
+exports.push([module.i, "\nbutton {\n        text-align: center;\n        vertical-align: middle;\n        -webkit-user-select: none;\n           -moz-user-select: none;\n            -ms-user-select: none;\n                user-select: none;\n        white-space: nowrap;\n        cursor: pointer;\n        display: inline-block;\n        margin-bottom: 0;\n}\n#scrolltable { margin-top: 20px; height: 200px; overflow: auto;\n}\n#scrolltable table { border-collapse: collapse;\n}\n#scrolltable tr:nth-child(even) { background: #EEE;\n}\n#scrolltable th div { position: absolute; margin-top: -20px;\n}\n.contenedor{\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n}\n.elemento{\n        width: 25%;\n}\n.destacado{\n        margin-left: 2em;\n        border: dot-dash\n}\n#Al{\n      font-size: 70px;\n}\n#Pal{\n      font-size: 200px;\n      font-weight: bold;\n      font-weight: 300;\n}\n\n  \n\n", ""]);
 
 // exports
 
@@ -44709,6 +44718,17 @@ exports.push([module.i, "\nbutton {\n    text-align: center;\n    vertical-align
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -44888,7 +44908,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this3.elAlumnoapellido = "";
 
                 //  toastr.success("Se han Seleccionado las Palabras del Alumno");
-            }).chatch(function (error) {
+            }).catch(function (error) {
                 _this3.errors = error.response.data.message;
                 console.log(error);
             });
@@ -45030,7 +45050,7 @@ var render = function() {
           2
         ),
         _vm._v(" "),
-        _c("div", { staticStyle: { "text-aling": "centre" } }, [
+        _c("div", { attrs: { id: "scrolltable" } }, [
           _c("table", { staticClass: "table table-hover table-striped " }, [
             _vm._m(1),
             _vm._v(" "),
@@ -45075,7 +45095,11 @@ var render = function() {
     _c("div", { staticClass: "w3-col m8 l10 w3-center" }, [
       _c("p", { attrs: { id: "Al" } }, [_vm._v(_vm._s(_vm.elAlumnonombre))]),
       _vm._v(" "),
-      _c("p", { attrs: { id: "Pal" } }, [_vm._v(_vm._s(_vm.elAlumnoapellido))])
+      _c("div", { attrs: { id: "pala" } }, [
+        _c("p", { attrs: { id: "Pal" } }, [
+          _vm._v(_vm._s(_vm.elAlumnoapellido))
+        ])
+      ])
     ])
   ])
 }

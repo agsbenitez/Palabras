@@ -85,6 +85,15 @@
         margin-bottom: 0;
     }
 
+    #div1 {
+      margin: 50px;
+      padding: 12px;
+    }
+
+    #selectalumno{
+      margin-left: 25px;
+    }
+
     .contenedor{
         display: flex;
     }

@@ -32,21 +32,22 @@
 			$this->col = [];
 			$this->col[] = ["label"=>"Palabra","name"=>"palabra","join"=>"palabras,palabra"];
 			$this->col[] = ["label"=>"Alumno","name"=>"alumno","join"=>"alumnos,apellido"];
+			$this->col[] = ["label"=>"Alumno","name"=>"alumno","join"=>"alumnos,nombre"];
 			$this->col[] = ["label"=>"Correcto","name"=>"correcto"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Palabra','name'=>'palabra','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Alumno','name'=>'alumno','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Correcto','name'=>'correcto','type'=>'radio','validation'=>'|min:1|max:255','width'=>'col-sm-10','dataenum'=>'1;0'];
+			$this->form[] = ['label'=>'Palabra','name'=>'palabra','type'=>'number','validation'=>'integer|min:0','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Alumno','name'=>'alumno','type'=>'number','validation'=>'integer|min:0','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Correcto','name'=>'correcto','type'=>'checkbox','validation'=>'min:1|max:255','width'=>'col-sm-10','dataenum'=>'1;0'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Palabra','name'=>'palabra','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Alumno','name'=>'alumno','type'=>'number','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Correcto','name'=>'correcto','type'=>'radio','validation'=>'|min:1|max:255','width'=>'col-sm-10','dataenum'=>'1'];
+			//$this->form[] = ['label'=>'Palabra','name'=>'palabra','type'=>'number','validation'=>'integer|min:0','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Alumno','name'=>'alumno','type'=>'number','validation'=>'integer|min:0','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Correcto','name'=>'correcto','type'=>'checkbox','validation'=>'min:1|max:255','width'=>'col-sm-10','dataenum'=>'1, 0'];
 			# OLD END FORM
 
 			/* 

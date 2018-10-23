@@ -38,7 +38,7 @@
             {{alumno.apellido + ' ' + alumno.nombre}}
           </option>
         </select>
-        <div style="text-aling:centre">
+        <div id="scrolltable">
           <table class="table table-hover table-striped " >
             <thead>
               <tr>
@@ -63,8 +63,9 @@
     </div>
     <div class="w3-col m8 l10 w3-center">
       <p id="Al">{{elAlumnonombre}}</p>
-      <p id="Pal">{{elAlumnoapellido}}</p>
-        
+      <div id="pala">
+        <p id="Pal">{{elAlumnoapellido}}</p>
+      </div>  
     </div>
     
   </div>
@@ -72,6 +73,7 @@
 </template>
 
 <style>
+    
     button {
         text-align: center;
         vertical-align: middle;
@@ -81,6 +83,11 @@
         display: inline-block;
         margin-bottom: 0;
     }
+
+    #scrolltable { margin-top: 20px; height: 200px; overflow: auto; }
+#scrolltable table { border-collapse: collapse; }
+#scrolltable tr:nth-child(even) { background: #EEE; }
+#scrolltable th div { position: absolute; margin-top: -20px; }
 
     .contenedor{
         display: flex;
@@ -99,7 +106,11 @@
 
     #Pal{
       font-size: 200px;
+      font-weight: bold;
+      font-weight: 300;
     }
+
+  
 
 </style>
 
@@ -174,7 +185,7 @@
                 this.elAlumnoapellido = "";
                 
               //  toastr.success("Se han Seleccionado las Palabras del Alumno");
-              }).chatch((error)=>{
+              }).catch((error)=>{
                 this.errors = error.response.data.message;
                 console.log(error);
               })

@@ -33,7 +33,7 @@ class PalabrasPrimaria extends Seeder
         "cuadro","jabón","pulpo","lechuga","papel","pomelo");
         foreach ($dataArray as $data){
           DB::table('palabras')->insert([
-            'palabra'=> strtoupper($data),
+            'palabra'=> $data,
             'dificultad_id'=> $dificultad,
           ]);
         }

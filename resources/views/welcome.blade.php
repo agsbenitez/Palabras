@@ -22,7 +22,7 @@
                 crossorigin="anonymous"></script>
 
 
-        <title>Laravel</title>
+        <title>Conrso de Deletreo</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -62,6 +62,10 @@
                 text-align: center;
             }
 
+            .logo_muni{
+
+            }
+
             .title {
                 font-size: 84px;
             }
@@ -95,18 +99,22 @@
             @endif
 
             <div class="content">
-                {{--<div class="title m-b-md">
+                <div class="title m-b-md">
                     Palabras
+                </div>
+                <div class="logo_muni">
+                    <img src="../img/logo_2.png" alt="Logo Municipal" width="300" height="200">
+                    
                 </div>
 
                 <div class="links">
                     <a href="/palabras">Palabras</a>
-                    --}}{{--<a href="{{ route('palabras') }}">Palabras</a>
+                    {{--<a href="{{ route('palabras') }}">Palabras</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>--}}{{--
-                </div>--}}
+                    <a href="https://github.com/laravel/laravel">GitHub</a>--}}
+                </div>
             </div>
                 @section('content')
                 @show

@@ -20,7 +20,7 @@ class PalabrasController extends Controller
 
         $random[] = 0;
 
-        for( $i = 0; $i <= 4; $i++){
+        for( $i = 0; $i <= 9; $i++){
           $rand =rand(1,$palabrasRoandom->count());
           $random[$i] = $palabrasRoandom[$rand];
         }

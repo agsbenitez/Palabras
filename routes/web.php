@@ -24,6 +24,17 @@ Route::get('palabras', function (){
     return view('palabra');
 
 });
+/*
+inicio
+seccion de urls para pruba 
+*/
+Route::get('pages', function(){
+	return view('page.html');
+});
+/*
+fin
+seccion de urls para pruba 
+*/
 
 Route::get('concurso', function(){
   return view('concurso');
